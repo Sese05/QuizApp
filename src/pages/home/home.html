@@ -1,14 +1,182 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="sweet">
     <ion-title>
-      Ionic Blank
+  Quiz App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content  class="content1" padding>
+  <h1>Welcome To Quiz Game!!!</h1>
+    <div padding>
+        <ion-segment [(ngModel)]="Categories">
+
+          <ion-segment-button value="Music">
+           MUSIC
+          </ion-segment-button>
+
+          <ion-segment-button value="Technology">
+            TECHNOLOGY
+          </ion-segment-button>
+          <ion-segment-button value="History">
+          HISTORY
+             </ion-segment-button>
+        </ion-segment>
+
+      </div>
+    
+      <div [ngSwitch]="Categories">
+
+        <ion-list radio-group *ngSwitchCase="'Music'">
+            <h2>Music Quiz</h2>
+            <h5> Which British singer won five Grammys including Album Of The Year?</h5>
+          <ion-item style="background-color: transparent">
+            <ion-label>Select Correct Answer:</ion-label>
+            <ion-select color="sweet" value="Adele" [(ngModel)]="musicA1">
+                 <ion-option value="Adele">adele</ion-option> 
+                 <ion-option>Ed Shreen</ion-option> 
+                 <ion-option>sam smith</ion-option> 
+            </ion-select>
+          </ion-item>
+
+          <h5> Which rapper's ablum in four years was called 4:44?</h5>
+          <ion-item style="background-color: transparent"  >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Jay-Z" [(ngModel)]="musicA2">
+                <ion-option>Kanye West</ion-option> 
+                <ion-option value="Jay-Z"> Jay-Z</ion-option> 
+                <ion-option>Dr Dre</ion-option> 
+            </ion-select>
+           </ion-item>
+
+          <h5> which memeber of fifth Harmony left the group in December to pursue a solo career?</h5>
+          <ion-item  style="background-color: transparent">
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Camila Cabello" [(ngModel)]="musicA3">
+                <ion-option>Dinah Jane</ion-option> 
+                <ion-option>Ally Brooke</ion-option> 
+                <ion-option value="Camila Cabello"> Camila Cabello</ion-option> 
+            </ion-select>
+           </ion-item>
+          <h5>Where was Beyonce born and raised?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Huston,Texas" [(ngModel)]="musicA4">
+                <ion-option>Helena,Montana</ion-option> 
+                <ion-option>Los Angeles,California</ion-option> 
+                <ion-option value="Huston,Texas">Huston,Texas</ion-option> 
+            </ion-select>
+          </ion-item>
+          <h5>Which of Beyonce songs won Song Of The Year in 2010?</h5>
+          <ion-item style="background-color: transparent" >
+              <ion-label>Select Correct Answer:</ion-label>
+              <ion-select color="sweet" value="SingleLadies" [(ngModel)]="musicA5">
+              <ion-option>Baby Boy</ion-option> 
+              <ion-option value="SingleLadies"> Single Ladies</ion-option> 
+              <ion-option>Ego</ion-option> 
+          </ion-select>
+          </ion-item>
+          <button ion-button block color="sweet" (click)="myScore()">My Score</button>
+           <h1>Score : {{musicTot}}/25</h1>
+        </ion-list>
+
+        <ion-list radio-group *ngSwitchCase="'Technology'">
+            <h2> Technology Quiz</h2>
+            <h5>How many bits make a byte?</h5>
+              <ion-item style="background-color: transparent">
+                    <ion-label>Select Correct Answer:</ion-label>
+                    <ion-select color="sweet" value="16 bits" [(ngModel)]="TecA1">
+                    <ion-option>8 bits</ion-option> 
+                    <ion-option>16 bits</ion-option> 
+                    </ion-select>
+              </ion-item>
+            
+          <h5>What is the meaning of CPU?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Central Processing Unit" [(ngModel)]="TecA2">
+                <ion-option>Critical Processing Unit</ion-option> 
+                <ion-option>Central Processing Unit</ion-option> 
+                </ion-select>
+          </ion-item>
+          <h5>The process of starting or restatring a computer is called?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Booting" [(ngModel)]="TecA3">
+                <ion-option>Booting</ion-option> 
+                <ion-option>Resetting</ion-option> 
+                </ion-select>
+          </ion-item>
+          <h5>One component of the motherboard is?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Processor" [(ngModel)]="TecA4">
+                <ion-option>Processor</ion-option> 
+                <ion-option>Bios</ion-option> 
+                </ion-select>
+          </ion-item>
+          <h5>The largest key on the KeyBoard is the shift key?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="True" [(ngModel)]="TecA5">
+                <ion-option>True</ion-option> 
+                <ion-option>False</ion-option> 
+                </ion-select>
+          </ion-item>
+          <button ion-button block color="sweet" (click)="myScore2()">My Score</button>
+           <h1>Score : {{TechnologyTot}}/25</h1>
+        </ion-list>
+
+        <ion-list radio-group *ngSwitchCase="'History'">
+            <h2> HISTORY QUIZ</h2>
+            <h5>Which country was Nelson Mandela born?</h5>
+              <ion-item style="background-color: transparent" >
+                    <ion-label>Select Correct Answer:</ion-label>
+                    <ion-select color="sweet" value="South Africa" [(ngModel)]="His1">
+                    <ion-option>Jamaica</ion-option> 
+                    <ion-option>South Africa</ion-option> 
+                    </ion-select>
+              </ion-item>
+          <h5>Where was Nelson Mandela held prisoner?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Robben Island" [(ngModel)]="His2">
+                <ion-option>Crobben Island</ion-option> 
+                <ion-option>Robben Island</ion-option> 
+                </ion-select>
+          </ion-item>
+         
+          <h5>Which President of South Africa ordered Nelson Mandela's release from prison?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="F.W.De Klerk" [(ngModel)]="His3">
+                <ion-option>F.W.De Klerk</ion-option> 
+                <ion-option>Pik Botha</ion-option> 
+                </ion-select>
+          </ion-item>
+          <h5>What year was Nelson Mandela born?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="1918" [(ngModel)]="His4">
+                <ion-option>1925</ion-option> 
+                <ion-option>1918</ion-option> 
+                </ion-select>
+          </ion-item>
+        
+          <h5>Which school was Nelson Mandela expelled from?</h5>
+          <ion-item style="background-color: transparent" >
+                <ion-label>Select Correct Answer:</ion-label>
+                <ion-select color="sweet" value="Fort Hare" [(ngModel)]="His5">
+                <ion-option>Fort Hare</ion-option> 
+                <ion-option>African College</ion-option> 
+                </ion-select>
+          </ion-item>
+          <button ion-button block color="sweet" (click)="myScore3()">My Score</button>
+          <h1>Score : {{HistoryTot}}/25</h1>
+        </ion-list>
+      </div>
+
+    
 </ion-content>
+
+
